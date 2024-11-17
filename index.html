@@ -4,16 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pixplore</title>
+    <title>Kaye Gamana | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="images/kayeGamanaLogo.png" type="image/png">
 
     <style>
         .videoContainer {
             position: relative;
             width: 100%;
-            height: 93vh;
+            height: 92vh;
             overflow: hidden;
         }
 
@@ -28,87 +29,117 @@
             transform: translate(-50%, -50%);
         }
 
-        .btn {
-            animation: expandContract 3s infinite;
-        }
-
-        @keyframes expandContract {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .card {
-            height: 300px;
-            padding: 0;
-            text-align: center;
-        }
-
-        .cardImageGenerator {
-            height: 550px;
-            border-radius: 20px;
+        .img-container {
+            width: 100%;
+            max-width: 415px;
+            margin: 0;
             overflow: hidden;
-            position: relative;
-            border: 8px solid #ffffff;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-            animation: ripple 3s infinite;
-            margin-top: 2vh;
+            border: 10px solid white;
+            border-radius: 15px;
         }
 
-        @keyframes ripple {
+        .about-me-img {
+            width: 100%;
+            height: auto;
+        }
 
-            0%,
-            100% {
-                box-shadow: 0 0 12px rgba(74, 144, 226, 0.3), 0 0 20px rgba(74, 144, 226, 0.1);
+        .aboutMeHello {
+            animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText {
+            0% {
+                color: #4087da;
+                transform: scale(1);
+                text-shadow: none;
             }
 
             50% {
-                box-shadow: 0 0 30px rgba(74, 144, 226, 0.5), 0 0 50px rgba(74, 144, 226, 0.2);
+                color: #B3D4FC;
+                transform: scale(1.1);
+                text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+            }
+
+            100% {
+                color: #4087da;
+                transform: scale(1);
+                text-shadow: none;
             }
         }
 
-        .imgContainer {
+        .skills-container,
+        .social-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            row-gap: 24px;
+        }
+
+        .skills-container img,
+        .social-container img {
+            width: 10vh;
+            height: 10vh;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skills-container img:hover,
+        .social-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .project-img-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            border-radius: 5px;
             overflow: hidden;
         }
 
-        .imgContainer img {
+        .project-img,
+        .project-hover-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid white;
         }
 
-        /* Dark Mode Styles */
-
-        [data-bs-theme="light"] .cardImageGenerator {
-            border: 8px solid rgb(255, 255, 255);
-            box-shadow: 0 0 20px rgb(255, 255, 255);
-            animation: ripple-dark 3s infinite;
+        .project-hover-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        @keyframes ripple-dark {
+        .project-img-container:hover .project-img {
+            opacity: 0;
+        }
 
-            0%,
-            100% {
-                box-shadow: 0 0 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
-            }
+        .project-img-container:hover .project-hover-img {
+            opacity: 1;
+        }
 
-            50% {
-                box-shadow: 0 0 30px rgba(2, 7, 43, 0.7), 0 0 50px rgba(2, 7, 60, 0.4);
-            }
+        .gif-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .contactGif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 
 <body data-bs-theme="dark" id="body" style="font-family: 'Montserrat', sans-serif;">
+
     <!-- Navigation Bar -->
     <nav id="nav-bar" class="navbar navbar-expand-lg bg-body-tertiary shadow"
         style="background-color: #4A90E2 !important;">
@@ -131,22 +162,22 @@
                             onmouseout="this.style.color='white'; this.style.textShadow='none';">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#imageGenerator"
+                        <a class="nav-link" href="index.html#aboutMe"
                             style="color: white; text-decoration: none; transition: text-shadow 0.3s ease;"
                             onmouseover="this.style.color='#f1c40f'; this.style.textShadow='2px 2px 5px rgba(0, 0, 0, 0.5)';"
-                            onmouseout="this.style.color='white'; this.style.textShadow='none';">Image Generator</a>
+                            onmouseout="this.style.color='white'; this.style.textShadow='none';">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="search.html"
+                        <a class="nav-link" href="index.html#projects"
                             style="color: white; text-decoration: none; transition: text-shadow 0.3s ease;"
                             onmouseover="this.style.color='#f1c40f'; this.style.textShadow='2px 2px 5px rgba(0, 0, 0, 0.5)';"
-                            onmouseout="this.style.color='white'; this.style.textShadow='none';">Search</a>
+                            onmouseout="this.style.color='white'; this.style.textShadow='none';">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#gallery"
+                        <a class="nav-link" href="index.html#contact"
                             style="color: white; text-decoration: none; transition: text-shadow 0.3s ease;"
                             onmouseover="this.style.color='#f1c40f'; this.style.textShadow='2px 2px 5px rgba(0, 0, 0, 0.5)';"
-                            onmouseout="this.style.color='white'; this.style.textShadow='none';">Gallery</a>
+                            onmouseout="this.style.color='white'; this.style.textShadow='none';">Contact</a>
                     </li>
                 </ul>
                 <button id="themeToggle" onclick="changeMode()">
@@ -163,101 +194,259 @@
     <!-- Video Background -->
     <div class="videoContainer">
         <video autoplay loop muted class="videoBackground">
-            <source src="pixploreIntro.mp4" type="video/mp4" />
+            <source src="videos/portfolioVidName.mp4" type="video/mp4" />
         </video>
     </div>
-
 
     <div
         style="width: 100%; height: 5px; background-color: #012549; margin: 0; box-shadow: 0px 4px 10px rgba(0, 0, 0, 2);">
     </div>
 
-    <!-- Image Generator -->
+
+    <!-- About ME -->
     <div class="container">
-        <div class="row" style="padding-top: 9vh;" id="imageGenerator">
-            <div class="col">
-                <h1 class="display-5" style="text-align: center;">IMAGE GENERATOR</h1>
-            </div>
-        </div>
+        <div class="row" id="aboutMe"
+            style="padding-top: 9vh; display: flex; align-items: center; justify-content: center;">
+            <h1 class="display-5" style="text-align: center; padding-top: 3vh; font-weight: bold; font-size: 8vh;">
+                ABOUT ME
+            </h1>
 
-        <div class="row mt-3">
-            <div class="col">
-                <div
-                    style="width: 100%; height: 5px; background-color: #4A90E2; margin: 0;  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row mt-5 mb-5 justify-content-center">
-                <div class="col-md-8">
-                    <div class="cardImageGenerator">
-                        <video id="placeholderVideo" autoplay loop muted class="background-video"
-                            style="height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover;">
-                            <source src="placeholderVideo.mp4" type="video/mp4" />
-                        </video>
-                        <img id="randomImage" src="" alt="Random"
-                            style="display: none; height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover;">
+            <div class="row mt-4">
+                <div class="col" style="padding-bottom: 3vh;">
+                    <div
+                        style="width: 100%; height: 5px; background-color: #4A90E2; margin-bottom: 4vh; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-2 justify-content-center">
-                <div class="col-md-4 px-5">
-                    <button id="generateImageButton" style="width: 100%; margin: auto;"
-                        class="btn btn-outline-primary mb-4">Generate Random Images</button>
+            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                <!-- Image Container -->
+                <div class="col-12 col-md-5">
+                    <div class="img-container">
+                        <img src="images/aboutMePicture.jpg" class="about-me-img" style="width: 100%; height: auto;">
+                    </div>
                 </div>
 
-                <div class="col-md-4 px-5">
-                    <a href="search.html">
-                        <button class="btn btn-outline-success mb-4"
-                            style="width: 100%; margin: auto; text-decoration: none;">Search for an Image</button>
+                <!-- Text Container -->
+                <div class="col-12 col-md-6">
+                    <h1 class="aboutMeHello"
+                        style="text-align: center; padding-top: 3vh; padding-bottom: 3vh; font-weight: bold; font-size: 7vh; font-style: italic;">
+                        HELLO!
+                    </h1>
+                    <p style="text-align: center;">
+                        I'm Kaye Christine P. Gamana, a 20-year-old Gemini born on May 21, 2004. Hailing from Bay,
+                        Laguna,
+                        I’ve ventured beyond my comfort zone to pursue my passion for computers, choosing the path of
+                        Information Technology at the Polytechnic University of the Philippines in Santo Tomas—a place
+                        unfamiliar and far from my sanctuary.
+
+                    </p>
+                    <p style="text-align: center;">
+                        I’m now in my third year of college, fully immersed in the exciting world of Web Development.
+                        Join
+                        me on this track, browse my portfolio, and discover my projects listed below as I transform
+                        pieces
+                        of code—HTML, CSS, JavaScript, and other ideas—into functional and user-friendly interfaces.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Experience and Skills Overview -->
+            <div class="row">
+                <div class="container">
+                    <h2 class="display-6 text-center"
+                        style="padding-top: 10vh; padding-bottom: 5vh; font-weight: bold;">
+                        Experience and Skills Overview
+                    </h2>
+                    <div class="skills-container">
+                        <img src="images/expSkill1.png" alt="Skill 1">
+                        <img src="images/expSkill2.png" alt="Skill 2">
+                        <img src="images/expSkill3.png" alt="Skill 3">
+                        <img src="images/expSkill4.png" alt="Skill 4">
+                        <img src="images/expSkill5.png" alt="Skill 5">
+                        <img src="images/expSkill6.png" alt="Skill 6">
+                        <img src="images/expSkill7.png" alt="Skill 7">
+                        <img src="images/expSkill8.png" alt="Skill 8">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding-top: 5vh;">
+                    <p style="text-align: justify;  text-indent: 5vh; width: 100%; margin: 0;">
+                        The programming languages listed above, along with SQL, HTML, and CSS, reflect the technical
+                        skills
+                        and experiences I have gained throughout my academic journey and continue to refine. I have
+                        utilized
+                        these languages primarily for developing functional projects, creating games, and building
+                        various
+                        digital tools.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="container">
+                    <div class="skills-container" style="padding-top: 5vh;">
+                        <img src="images/expSkill9.png" alt="Skill 1">
+                        <img src="images/expSkill10.png" alt="Skill 2">
+                        <img src="images/expSkill11.png" alt="Skill 3">
+                        <img src="images/expSkill12.png" alt="Skill 4">
+                        <img src="images/expSkill13.png" alt="Skill 5">
+                        <img src="images/expSkill14.png" alt="Skill 6">
+                        <img src="images/expSkill15.png" alt="Skill 7">
+                        <img src="images/expSkill16.png" alt="Skill 8">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding-top: 5vh;">
+                    <p style="text-align: justify;  text-indent: 5vh; width: 100%; margin: 0;">
+                        Additionally, the software tools listed above are among my most frequently used for image,
+                        audio, and video editing. With sufficient mastery of these tools, I have been able to create
+                        visually engaging content, which has greatly supported my efforts in refining UI/UX design and
+                        advancing the front-end development of my website.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="container">
+        <div class="row" id="projects" style="padding-top: 9vh; display: flex; align-items: center;">
+            <h1 class="display-5" style="text-align: center; padding-top: 3vh; font-weight: bold; font-size: 8vh;">
+                MY PROJECTS
+            </h1>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col" style="padding-bottom: 3vh;">
+                <div
+                    style="width: 100%; height: 5px; background-color: #4A90E2; margin-bottom: 4vh; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Preview - Image Container -->
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <a href="link-to-project1.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview1.png" alt="Project 1" class="img-fluid project-img">
+                        <img src="images/projectPreviewHover1.png" alt="Project 1 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="link-to-project2.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview2.png" alt="Project 2" class="img-fluid project-img">
+                        <img src="images/projectPreviewHover2.png" alt="Project 2 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="link-to-project3.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview3.png" alt="Project 3" class="img-fluid project-img">
+                        <img src="images/projectPreviewHover3.png" alt="Project 3 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-4">
+                <a href="link-to-project4.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview4.png" alt="Project 4" class="img-fluid project-img">
+                        <img src="images/projectPreviewHover4.png" alt="Project 4 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <a href="link-to-project5.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview5.png" alt="Project 5" class="img-fluid project-img">
+                        <img src="images/projectPreviewComingSoon.png" alt="Project 5 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="link-to-project6.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview6.png" alt="Project 6" class="img-fluid project-img">
+                        <img src="images/projectPreviewComingSoon.png" alt="Project 6 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="link-to-project7.html">
+                    <div class="project-img-container">
+                        <img src="images/projectPreview7.png" alt="Project 7" class="img-fluid project-img">
+                        <img src="images/projectPreviewComingSoon.png" alt="Project 7 Hover"
+                            class="img-fluid project-hover-img">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="container">
+        <div class="row" id="contact" style="padding-top: 9vh; display: flex; align-items: center;">
+            <h1 class="display-5" style="text-align: center; padding-top: 3vh; font-weight: bold; font-size: 8vh;">
+                CONTACT
+            </h1>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col" style="padding-bottom: 3vh;">
+                <div
+                    style="width: 100%; height: 5px; background-color: #4A90E2; margin-bottom: 4vh; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 d-flex justify-content-center" style="padding-bottom: 3vh;">
+                <div class="gif-container">
+                    <img src="images/contactGif.gif" class="contactGif" alt="Contact Gif">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 d-flex flex-column align-items-center">
+                <h5 style="text-align: center; padding-bottom: 4vh; font-style: italic;">
+                    Let's Communicate, Collaborate, Create, Code, and Curate. Contact Me.
+                </h5>
+    
+                <div class="skills-container">
+                    <a href="https://www.facebook.com/KayeC5214" target="_blank" title="Facebook">
+                        <img src="images/contactIcon1.png" alt="Social 1">
+                    </a>
+                    <a href="mailto:kayecgamana@gmail.com" target="_blank" title="Gmail">
+                        <img src="images/contactIcon2.png" alt="Social 2">
+                    </a>
+                    <a href="https://github.com/kayegamana" target="_blank" title="Github">
+                        <img src="images/contactIcon3.png" alt="Social 3">
+                    </a>
+                    <a href="https://www.instagram.com/kaychieeeeee" target="_blank" title="Instagram">
+                        <img src="images/contactIcon4.png" alt="Social 4">
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Gallery -->
-    <div class="container">
-        <div class="row" style="padding-top: 8vh;" id="gallery">
-            <div class="col">
-                <h1 class="display-5" style="text-align: center;">GALLERY</h1>
-            </div>
-        </div>
 
-        <div class="row mt-4">
-            <div class="col">
-                <div
-                    style="width: 100%; height: 5px; background-color: #4A90E2;margin-bottom: 4vh;  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="cardContainer">
-        </div>
-    </div>
-
-    <!-- Page Buttons -->
-    <div class="container">
-        <div class="row my-5">
-            <div class="col text-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item" id="prevBtn">
-                            <a class="page-link" onclick="prevPage()">Previous</a>
-                        </li>
-                        <li class="page-item disabled">
-                            <span id="currentPage" class="page-link">PAGE: 1</span>
-                        </li>
-                        <li class="page-item" id="nextBtn">
-                            <a class="page-link" onclick="nextPage()">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <div class="d-flex flex-wrap justify-content-between align-items-center py-2 mt-4 border-top dark"
@@ -265,7 +454,6 @@
         <p class="col-12 mb-0 text-center text-white">© 2024 Kaye Gamana | Pixplore
         </p>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -297,125 +485,7 @@
                 <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
                 <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
             </svg>`;
-
-
             }
-        }
-
-        // Random Image Generator Feature
-
-        document.getElementById('generateImageButton').addEventListener('click', function () {
-            // Get the video element and the image element
-            const videoElement = document.getElementById('placeholderVideo');
-            const imageElement = document.getElementById('randomImage');
-
-            // Hide the video
-            videoElement.style.display = 'none';
-
-            // Set the source of the image to a new random URL
-            imageElement.src = 'https://picsum.photos/1920/1080?' + new Date().getTime(); // Adding timestamp to avoid caching
-
-            // Show the image
-            imageElement.style.display = 'block';
-        });
-
-
-        var cardContainer = document.getElementById("cardContainer");
-        var currentPageIndicator = document.getElementById("currentPage");
-        var prevBtn = document.getElementById("prevBtn");
-        var nextBtn = document.getElementById("nextBtn");
-        var page = 1;
-        const totalPages = 20;
-
-        const loadImage = async () => {
-            // Fetch the list of images for the current page
-            const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=20`);
-
-            // Handle non-OK responses (e.g., 404, 500)
-            if (!response.ok) {
-                console.error('Network response was not ok:', response.statusText);
-                return; // Exit the function if there's an error
-            }
-
-            const images = await response.json();
-            let loadedImages = 0;
-            let cardsHTML = ''; // To store all card HTML for batch insertion
-
-            images.forEach((image, index) => {
-                const uniqueId = `card-${image.id}`; // Unique ID for each card
-
-                // Use the download_url directly from the response
-                cardsHTML += `
-            <div class="col-xl-3 col-md-4 col-sm-6 col-12">
-                <a href="view.html?imageId=${image.id}" target="_blank" rel="noopener noreferrer">
-                <div class="card my-3 position-relative" id="${uniqueId}" 
-                     onmouseenter="addShadow('${uniqueId}')" 
-                     onmouseleave="removeShadow('${uniqueId}')">
-                    <div class="imgContainer">
-                        <img src="${image.download_url}">
-                    </div>
-                </div>
-                </a>
-            </div>`;
-
-                loadedImages++;
-            });
-
-            // Insert all generated HTML at once to reduce DOM manipulations
-            cardContainer.innerHTML = cardsHTML;
-
-            // Update current page indicator
-            currentPageIndicator.innerText = `PAGE: ${page}`;
-            updatePaginationButtons();
-        };
-
-        // Call the loadImage function and handle errors
-        loadImage().catch(error => {
-            console.error('Error loading images:', error);
-        });
-
-
-        //Pagination
-
-        function updatePaginationButtons() {
-            // Disable previous button if on first page
-            prevBtn.classList.toggle('disabled', page === 1);
-            // Disable next button if on last page
-            nextBtn.classList.toggle('disabled', page === totalPages);
-        }
-
-        loadImage();
-
-        function nextPage() {
-            if (page < totalPages) {
-                cardContainer.innerHTML = "";
-                page += 1;
-                loadImage();
-            }
-        }
-
-        function prevPage() {
-            if (page > 1) {
-                cardContainer.innerHTML = "";
-                page -= 1;
-                loadImage();
-            }
-        }
-
-        //Shadow and Zoom Effect 
-        function addShadow(id) {
-            var cardElement = document.getElementById(id);
-            cardElement.classList.add("shadow");
-            cardElement.style.boxShadow = "0 20px 100px rgba(0, 0, 0, 1)";
-            cardElement.style.transform = "scale(1.05)";
-            cardElement.style.transition = "transform 0.3s";
-        }
-
-        function removeShadow(id) {
-            var cardElement = document.getElementById(id);
-            cardElement.classList.remove("shadow");
-            cardElement.style.boxShadow = "none";
-            cardElement.style.transform = "scale(1)";
         }
     </script>
 </body>
