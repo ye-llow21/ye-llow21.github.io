@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymBoost Chatbot</title>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+<style>
+    df-messenger {
+        --df-messenger-button-titlebar-color: #28364e;
+        --df-messenger-chat-background-color: #ffffff;
+        --df-messenger-font-color: #ffffff; 
+        --df-messenger-user-message: #28364e;
+        --df-messenger-bot-message: #bebebe;
+    }
+</style>
+</head>
+
+<body>
+
+    <df-messenger
+      intent="WELCOME"
+      chat-title="GymBoost"
+      agent-id="43c59ce1-7cfb-48bd-b6a8-ae447a9504fd"
+      language-code="en"
+      chat-icon="https://i.imgur.com/9PhYxu1.png">
+    </df-messenger>
+
+</body>
+</html>
